@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Museum Heist — CS109 Probability Simulator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <div id="app">
+
+    <!-- ── LEFT: Museum Map ── -->
+    <div id="left-panel">
+      <div class="panel-header">MUSEUM FLOOR PLAN</div>
+      <canvas id="map-canvas"></canvas>
+    </div>
+
+    <!-- ── MIDDLE: Probability Panel ── -->
+    <div id="mid-panel">
+      <div class="panel-header" id="prob-header">PROBABILITY ENGINE</div>
+      <canvas id="prob-canvas"></canvas>
+    </div>
+
+    <!-- ── RIGHT: Controls & Log ── -->
+    <div id="right-panel">
+
+      <!-- Phase Banner -->
+      <div id="phase-display">PHASE 1 — RECONNAISSANCE</div>
+
+      <!-- Room Info -->
+      <div class="card" id="room-card">
+        <div id="room-name">ENTRANCE</div>
+        <div id="room-desc" class="muted">Start of your infiltration</div>
+        <div id="room-obs" class="muted" style="margin-top:4px"></div>
+      </div>
+
+      <!-- Stats Row -->
+      <div id="stats-row">
+        <div class="stat-box"><div class="stat-label">ACTION PTS</div><div class="stat-val" id="stat-ap">15</div></div>
+        <div class="stat-box"><div class="stat-label">TURN</div><div class="stat-val" id="stat-turn">1</div></div>
+        <div class="stat-box"><div class="stat-label">ALERTS</div><div class="stat-val" id="stat-det">0</div></div>
+      </div>
+
+      <!-- Movement -->
+      <div class="section-label">MOVE TO ADJACENT ROOM</div>
+      <div id="move-buttons"></div>
+
+      <!-- ── PHASE 1 ACTIONS ── -->
+      <div class="phase1-only">
+        <div class="section-label">RECON ACTIONS</div>
+        <button class="action-btn" id="observe-btn">🔍 OBSERVE ROOM  <span class="cost">(1 AP)</span></button>
+        <div id="recon-progress" class="muted small" style="margin-top:6px"></div>
+        <button class="action-btn advance-btn" id="advance-btn" disabled>→ ADVANCE TO PLANNING</button>
+      </div>
+
+      <!-- ── PHASE 2 ACTIONS ── -->
+      <div class="phase2-only hidden">
+        <div class="section-label">PLAN YOUR ROUTE</div>
+        <div class="muted small">Click rooms on the map to build route. Must end at VAULT.</div>
+        <div id="route-list" style="margin-top:6px"></div>
+        <div id="route-btns" style="display:flex;gap:6px;margin-top:6px">
+          <button class="action-btn small-btn" id="route-undo-btn">↩ UNDO</button>
+          <button class="action-btn small-btn" id="route-clear-btn">✕ CLEAR</button>
+        </div>
+        <button class="action-btn" id="simulate-btn" style="margin-top:8px">⚙ RUN SIMULATION  <span class="cost">(1000 trials)</span></button>
+        <div id="sim-result" class="muted small" style="margin-top:6px"></div>
+        <button class="action-btn advance-btn" id="commit-btn" disabled>→ COMMIT ROUTE & BEGIN HEIST</button>
+
+        <div class="section-label" style="margin-top:12px">INTEL SUMMARY</div>
+        <div id="intel-list"></div>
+      </div>
+
+      <!-- ── PHASE 3 ACTIONS ── -->
+      <div class="phase3-only hidden">
+        <div class="section-label">EXECUTE</div>
+        <div id="exec-status" class="muted small" style="margin-bottom:6px"></div>
+        <button class="action-btn" id="execute-btn">▶ EXECUTE STEP  <span class="cost">(1 AP)</span></button>
+        <button class="action-btn" id="pick-lock-btn" style="margin-top:6px">🔓 PICK LOCK  <span class="cost">(2 AP)</span></button>
+        <button class="action-btn" id="disable-cameras-btn" style="margin-top:6px">📷 DISABLE CAMERAS  <span class="cost">(3 AP)</span></button>
+        <div id="suspicion-text" class="muted small" style="margin-top:8px"></div>
+      </div>
+
+      <!-- Log -->
+      <div class="section-label" style="margin-top:12px">OPERATION LOG</div>
+      <div id="log"></div>
+
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

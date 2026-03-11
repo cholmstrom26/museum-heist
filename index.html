@@ -7,8 +7,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
-  <script type="module" crossorigin src="/museum-heist/assets/index-D8TMdlLb.js"></script>
-  <link rel="stylesheet" crossorigin href="/museum-heist/assets/index-D9yejMly.css">
+  <link rel="stylesheet" href="/src/style.css" />
+  <script type="module" crossorigin src="/museum-heist/assets/index-CupiLvXM.js"></script>
 </head>
 <body>
   <div id="app">
@@ -51,6 +51,10 @@
 
       <!-- ── PHASE 1 ACTIONS ── -->
       <div class="phase1-only">
+        <div style="background:#00d4ff0a;border:1px solid #1a2540;border-radius:4px;padding:8px 10px;margin-bottom:8px;font-size:11px;color:#4a6080;line-height:1.6">
+          <span style="color:#00d4ff;font-size:9px;letter-spacing:2px">HOW TO PLAY</span><br>
+          Move to adjacent rooms using the buttons below, then click <span style="color:#c8d8f0">🔍 OBSERVE ROOM</span> to record guard sightings. Observe at least 3 rooms with 8+ total observations to unlock Phase 2.
+        </div>
         <div class="section-label">RECON ACTIONS</div>
         <button class="action-btn" id="observe-btn">🔍 OBSERVE ROOM  <span class="cost">(1 AP)</span></button>
         <div id="recon-progress" class="muted small" style="margin-top:6px"></div>
@@ -59,6 +63,10 @@
 
       <!-- ── PHASE 2 ACTIONS ── -->
       <div class="phase2-only hidden">
+        <div style="background:#00d4ff0a;border:1px solid #1a2540;border-radius:4px;padding:8px 10px;margin-bottom:8px;font-size:11px;color:#4a6080;line-height:1.6">
+          <span style="color:#00d4ff;font-size:9px;letter-spacing:2px">HOW TO PLAY</span><br>
+          Click rooms on the map to build your route — it must end at the <span style="color:#ffd700">VAULT</span>. Click <span style="color:#c8d8f0">⚙ RUN SIMULATION</span> to estimate your success odds, then click <span style="color:#00ff9d">→ COMMIT ROUTE</span> to begin the heist.
+        </div>
         <div class="section-label">PLAN YOUR ROUTE</div>
         <div class="muted small">Click rooms on the map to build route. Must end at VAULT.</div>
         <div id="route-list" style="margin-top:6px"></div>
@@ -76,6 +84,10 @@
 
       <!-- ── PHASE 3 ACTIONS ── -->
       <div class="phase3-only hidden">
+        <div style="background:#00d4ff0a;border:1px solid #1a2540;border-radius:4px;padding:8px 10px;margin-bottom:8px;font-size:11px;color:#4a6080;line-height:1.6">
+          <span style="color:#00d4ff;font-size:9px;letter-spacing:2px">HOW TO PLAY</span><br>
+          Click <span style="color:#c8d8f0">▶ EXECUTE STEP</span> to advance along your planned route. Visit the <span style="color:#c8d8f0">Server Room</span> to <span style="color:#c8d8f0">📷 DISABLE CAMERAS</span>, and use <span style="color:#c8d8f0">🔓 PICK LOCK</span> at the Vault to steal the Monet.
+        </div>
         <div class="section-label">EXECUTE</div>
         <div id="exec-status" class="muted small" style="margin-bottom:6px"></div>
         <button class="action-btn" id="execute-btn">▶ EXECUTE STEP  <span class="cost">(1 AP)</span></button>
